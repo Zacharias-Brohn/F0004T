@@ -27,14 +27,65 @@ Formeln på sambandet är
 \begin{align}
     Q = C \cdot h^\alpha \cdot d^\beta \cdot l^\gamma \cdot \rho^\delta \cdot g^\in \cdot \mu^\varepsilon
 \end{align}
-resultat är $\alpha = X$, $\beta = X$ och $\gamma = X$.
+resultat är $\alpha = 4$, $\beta = 1$ och $\gamma = -1$.
+%
+\subsection{Dimensionsanalys}
+\begin{align}
+    \alpha = 4 \\
+    \beta = 1 \\
+    \gamma = -1
+\end{align}
+\begin{align}\label{dimQ}
+    Q = L^3 \cdot T^{-1} \cdot M^0
+\end{align}
 \begin{align}
     [Q] &= [C] \cdot [h^\alpha] \cdot [d^\beta] \cdot [l^\gamma] \cdot [\rho^\delta] \cdot [g^\in] \cdot [\mu^\varepsilon]
 \end{align}
 Ekvations system
 \begin{align}
-    L^3T^{-1} &= L \cdot L \cdot L \cdot M \cdot L^{-3} \cdot L \cdot T^{-2} \cdot M \cdot L^{-1} \cdot T^{-1} \\
-    L^3T^{-1} &= 
+    L^3T^{-1} &= L^{\alpha} \cdot L^{\beta} \cdot L^{\gamma} \cdot (M \cdot L^{-3})^{\delta} \cdot (L \cdot T^{-2})^{\in} \cdot (M \cdot L^{-1} \cdot T^{-1})^{\varepsilon} \\
+    L^3T^{-1} &= M^{\delta + \in} \cdot L^{\alpha + \beta + \gamma - 3\delta - \in + \varepsilon} \cdot T^{-\in - 2\varepsilon}
+\end{align}
+\begin{align}\label{expMLT}
+    M&: \delta + \in = 0 \\
+    L&: \alpha + \beta + \gamma - 3\delta - \in + \varepsilon = 3 \\
+    T&: -\in - 2\varepsilon = -1
+\end{align}
+och av \ref{expMLT} får vi
+\begin{align}
+    \delta + \in = 0 \implies \in = - \delta
+\end{align}
+och om vi substituerar detta i \ref{dimQ}
+\begin{align}
+    L: \alpha + \beta + \gamma - 3\delta - (-\delta) + \varepsilon = 3
+\end{align}
+\begin{align}
+    \downarrow
+\end{align}
+\begin{align}
+    3 &= 4 + 1 - 1 - 2\delta + \varepsilon \\
+    3 &= 4 - 2\delta + \varepsilon \\
+    -1 &= -2\delta + \varepsilon \\
+    \varepsilon &= 2\delta - 1
+\end{align}
+substituera i 11
+\begin{align}
+    -1 &= -(-\delta)-2(2\delta-1) \\
+    &= \delta - 4\delta + 2 \\
+    &= -3\delta + 2 \\
+    -3 &= -3\delta
+\end{align}
+\begin{align}
+    \downarrow
+\end{align}
+\begin{align}
+    \frac{-3\delta}{-3} = \frac{-3}{-3} \implies \delta = 1 \implies \varepsilon = 2(1)-1 = 1
+\end{align}
+alltså
+\begin{align}
+    \delta &= 1 \\
+    \in &= -1 \\
+    \varepsilon &= 1
 \end{align}
 =======
 \section{Inledning}
