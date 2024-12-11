@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[swedish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath, amsthm, amssymb, tikz, cleveref}
+\usepackage{amsmath, amsthm, amssymb, tikz, cleveref, graphicx, pgfplots, pgfplotstable}
 \usetikzlibrary{decorations.pathreplacing}
 \usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
 % Lite formattering, svenska istället för engelska
@@ -55,6 +55,232 @@ där:
 \begin{equation}
     Y' = \ln y,\quad k = a,\quad X = \ln x,\quad m = \ln C
 \end{equation}
+%
+\section{Grafer och Resultat}
+Vi har fått fram 3 exponenter genom att linjärisera data från experimenten, vi
+börjar med hur volymflödet beror på höjden: \\
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={Höjd (m)},
+            ylabel={Volymflöde (Q)},
+            xmin=0, xmax=0.6,
+            ymin=0, ymax=3e-6,
+            width=0.75\textwidth,
+            height=8cm,
+            grid=major,
+            grid style={dashed,gray!30},
+            scaled y ticks=true,
+            axis lines = left,
+            axis line style={-},
+        ]
+            % Your data points here
+            \addplot[thick,black,mark=*,only marks] coordinates {
+                % Add your coordinates here
+                (0.15, 8.8750e-7)
+                (0.25, 1.3546e-6)
+                (0.35, 1.7158e-6)
+                (0.45, 2.1096e-6)
+                (0.55, 2.4738e-6)
+            };
+            \addplot[red,dashed] table[y={create col/linear regression={y=Y}}] {
+                x       Y
+                0.15    8.8750e-7
+                0.25    1.3546e-6
+                0.35    1.7158e-6
+                0.45    2.1096e-6
+                0.55    2.4738e-6
+            };
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:height_flow}
+\end{figure}
+%
+\newpage
+Ln(Q)
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ln(\text{höjd})},
+            ylabel={ln(Q)},
+            xmin=-2, xmax=-0.4,
+            ymin=-14.2, ymax=-12.2,
+            width=0.75\textwidth,
+            height=8cm,
+            grid=major,
+            grid style={dashed,gray!30},
+            ytick={-14.2,-13.8,-13.4,-13,-12.6,-12.2},
+            scaled y ticks=true,
+            scaled x ticks=true,
+            axis lines = left,
+            axis line style={-},
+        ]
+            % Your data points here
+            \addplot[thick,black,mark=*,only marks] coordinates {
+                % Add your coordinates here
+                (-1.89712, -13.9349)
+                (-1.38629, -13.512)
+                (-1.04982, -13.2756)
+                (-0.79851, -13.069)
+                (-0.59784, -12.9098)
+            };
+            \addplot[red,dashed] table[y={create col/linear regression={y=Y}}] {
+                x       Y
+                -1.89712 -13.9349
+                -1.38629 -13.512
+                -1.04982 -13.2756
+                -0.79851 -13.069
+                -0.59784 -12.9098
+            };
+                \node[anchor=north west] at (axis cs:-1.9,-12.5) {$f(x) =
+                0.783284297732908 x - 12.4426780275189$};
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:LNheight_flow}
+\end{figure}
+%
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ln(\text{radien})},
+            ylabel={ln(Q)},
+            xmin=-7.8, xmax=-7,
+            ymin=-16.5, ymax=-12.5,
+            width=0.75\textwidth,
+            height=8cm,
+            grid=major,
+            grid style={dashed,gray!30},
+            ytick={-16.5,-16,-15.5,-15,-14.5,-14,-13.5,-13,-12.5},
+            scaled y ticks=true,
+            scaled x ticks=true,
+            axis lines = left,
+            axis line style={-},
+        ]
+            % Your data points here
+            \addplot[thick,black,mark=*,only marks] coordinates {
+                % Add your coordinates here
+                (-7.04129, -13.6051)
+                (-7.16912, -14.1177)
+                (-7.28609, -14.5128)
+                (-7.53324, -15.4939)
+                (-7.72874, -16.2281)
+            };
+            \addplot[red,dashed] table[y={create col/linear regression={y=Y}}] {
+                x       Y
+                -7.04129 -13.6051
+                -7.16912 -14.1177
+                -7.28609 -14.5128
+                -7.53324 -15.4939
+                -7.72874 -16.2281
+            };
+            \node[anchor=north west] at (axis cs:-7.75,-13) {$f(x) =
+            3.81332761668806x + 13.2428783215635$};
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:LNRadius_flow}
+\end{figure}
+%
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={ln(\text{längd})},
+            ylabel={ln(Q)},
+            xmin=-2, xmax=-1,
+            ymin=15.4, ymax=17,
+            width=0.75\textwidth,
+            height=8cm,
+            grid=major,
+            grid style={dashed,gray!30},
+            ytick={15.4,15.6,15.8,16,16.2,16.4,16.6,16.8,17},
+            scaled y ticks=true,
+            scaled x ticks=true,
+            axis lines = left,
+            axis line style={-},
+        ]
+            % Your data points here
+            \addplot[thick,black,mark=*,only marks] coordinates {
+                % Add your coordinates here
+                (-1.05843, 1.5853e+1)
+                (-1.19733, 1.6027e+1)
+                (-1.28374, 1.6191e+1)
+                (-1.55117, 1.6338e+1)
+                (-1.89712, 1.6740e+1)
+            };
+            \addplot[red,dashed] table[y={create col/linear regression={y=Y}}] {
+                x       Y
+                -1.05843 1.5853e+1
+                -1.19733 1.6027e+1
+                -1.28374 1.6191e+1
+                -1.55117 1.6338e+1
+                -1.89712 1.6740e+1
+            };
+            \node[anchor=north west] at (axis cs:-1.89,16.9) {$f(x) =
+            -1.00625346138994x + 14.8236187761332$};
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:LNLength_flow}
+\end{figure}
+%
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ylabel={Volymflöde Q $(m^3/s)$},
+            xlabel={$r^4 \cdot h \cdot L \cdot p \cdot a \cdot a^{-1} \cdot g$},
+            xmin=0, xmax=1e-5,
+            ymin=0, ymax=3e-6,
+            width=0.75\textwidth,
+            height=8cm,
+            grid=major,
+            grid style={dashed,gray!30},
+            axis lines = left,
+            axis line style={-},
+        ]
+            % Your data points here
+            \addplot[thick,black,mark=*,only marks] coordinates {
+                (0.0000035022, 0.0000012342)
+                (0.0000021002, 0.00000073917)
+                (0.0000013154, 0.00000049792)
+                (0.00000048947, 0.00000018667)
+                (0.00000022393, 0.000000089583)
+                (0.0000024773, 0.0000008875)
+                (0.0000041289, 0.0000013546)
+                (0.0000057804, 0.0000017158)
+                (0.0000074319, 0.0000021096)
+                (0.0000090835, 0.0000024738)
+                (0.0000090835, 0.0000024738)
+                (0.000006259, 0.0000017658)
+                (0.000004274, 0.0000013025)
+                (0.0000020779, 0.00000056167)
+                (0.0000013436, 0.00000038375)
+            };
+            \addplot[red,dashed,mark=none,dash pattern = on 1pt off 4pt,] table[y={create col/linear regression={y=Y}}] {
+                x Y
+                0.0000035022 0.0000012342
+                0.0000021002 0.00000073917
+                0.0000013154 0.00000049792
+                0.00000048947 0.00000018667
+                0.00000022393 0.000000089583
+                0.0000024773 0.0000008875
+                0.0000041289 0.0000013546
+                0.0000057804 0.0000017158
+                0.0000074319 0.0000021096
+                0.0000090835 0.0000024738
+                0.000006259 0.0000017658
+                0.000004274 0.0000013025
+                0.0000020779 0.00000056167
+                0.0000013436 0.00000038375
+            };
+            \node[anchor=north west] at (axis cs:0.0000005,0.0000029) {$f(x) =
+            0.270986623660957x +1.15784970366569e-7$};
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:constant}
+\end{figure}
 %
 \section{Dimensionsanalys av Volymflöde}
 Det generella sambandet för volymflödet ges av:
