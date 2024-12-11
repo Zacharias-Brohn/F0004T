@@ -59,46 +59,18 @@ där:
 \section{Grafer och Resultat}
 Vi har fått fram 3 exponenter genom att linjärisera data från experimenten, vi
 börjar med hur volymflödet beror på höjden: \\
-\begin{figure}[htbp]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            xlabel={Höjd (m)},
-            ylabel={Volymflöde (Q)},
-            xmin=0, xmax=0.6,
-            ymin=0, ymax=3e-6,
-            width=0.75\textwidth,
-            height=8cm,
-            grid=major,
-            grid style={dashed,gray!30},
-            scaled y ticks=true,
-            axis lines = left,
-            axis line style={-},
-        ]
-            % Your data points here
-            \addplot[thick,black,mark=*,only marks] coordinates {
-                % Add your coordinates here
-                (0.15, 8.8750e-7)
-                (0.25, 1.3546e-6)
-                (0.35, 1.7158e-6)
-                (0.45, 2.1096e-6)
-                (0.55, 2.4738e-6)
-            };
-            \addplot[red,dashed] table[y={create col/linear regression={y=Y}}] {
-                x       Y
-                0.15    8.8750e-7
-                0.25    1.3546e-6
-                0.35    1.7158e-6
-                0.45    2.1096e-6
-                0.55    2.4738e-6
-            };
-        \end{axis}
-    \end{tikzpicture}
-    \label{fig:height_flow}
-\end{figure}
-%
-\newpage
-Ln(Q)
+\begin{center}
+    \begin{tabular}{  c  c  c  c  }
+        Höjd(m) & Flöde$(m^3/s)$ & ln(höjd) & ln(Q) \\ 
+        \hline
+        $0.15$ & $8.8750e-7$ & $-1.897120$ & $-13.93486$ \\
+        $0.25$ & $1.3546e-6$ & $-1.386294$ & $-13.51205$ \\
+        $0.35$ & $1.7158e-6$ & $-1.049822$ & $-13.27561$ \\
+        $0.45$ & $2.1096e-6$ & $-0.798508$ & $-13.06903$ \\
+        $0.55$ & $2.4738e-6$ & $-0.597837$ & $-12.90978$ \\
+    \end{tabular}
+\end{center}
+Och om vi linjäriserar detta hittar vi exponenten \\
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
@@ -139,8 +111,20 @@ Ln(Q)
         \end{axis}
     \end{tikzpicture}
     \label{fig:LNheight_flow}
-\end{figure}
+\end{figure} \\
 %
+Sedan undersöker vi hur radien påverkar volymflödet, samt linjärisera \\
+\begin{center}
+    \begin{tabular}{  c  c  c  c  }
+        Radie(m) & Flöde$(m^3/s)$ & ln(r) & ln(Q) \\ 
+        \hline
+        $0.000875$ & $1.2342e-6$ & $-7.041287$ & $-13.60511$ \\
+        $0.000770$ & $7.3917e-7$ & $-7.169120$ & $-14.11774$ \\
+        $0.000685$ & $4.9792e-7$ & $-7.286092$ & $-14.51283$ \\
+        $0.000535$ & $1.8667e-7$ & $-7.533244$ & $-15.49394$ \\
+        $0.000440$ & $8.9583e-8$ & $-7.728736$ & $-16.22810$ \\
+    \end{tabular}
+\end{center}
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
@@ -183,6 +167,19 @@ Ln(Q)
     \label{fig:LNRadius_flow}
 \end{figure}
 %
+\newpage
+Slutligen undersöker vi hur längden påverkar volymflödet, samt linjärisera \\
+\begin{center}
+    \begin{tabular}{  c  c  c  c  }
+        Längd(m) & Flöde$(m^3/s)$ & ln(r) & ln(Q) \\ 
+        \hline
+        $0.347$ & $2.4738e-6$ & $-1.058430$ & $1.5853e+1$ \\
+        $0.302$ & $1.7658e-6$ & $-1.197328$ & $1.6027e+1$ \\
+        $0.277$ & $1.3025e-6$ & $-1.283738$ & $1.6191e+1$ \\
+        $0.212$ & $5.6167e-7$ & $-1.551169$ & $1.6338e+1$ \\
+        $0.150$ & $3.8375e-7$ & $-1.897120$ & $1.6740e+1$ \\
+    \end{tabular}
+\end{center}
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}
@@ -224,6 +221,7 @@ Ln(Q)
     \end{tikzpicture}
     \label{fig:LNLength_flow}
 \end{figure}
+hitta konstant \\
 %
 \begin{figure}[htbp]
     \centering
@@ -282,6 +280,7 @@ Ln(Q)
     \label{fig:constant}
 \end{figure}
 %
+\newpage
 \section{Dimensionsanalys av Volymflöde}
 Det generella sambandet för volymflödet ges av:
 \begin{equation}
