@@ -73,7 +73,7 @@ huvudkomponenten, drogs fyra slangar:
 \end{itemize}
 %
 På glasröret monterades en linjal för att mäta och kontrollera vattentrycket. 
-Tio teströr med varierande längd och diameter användes och kategoriserades efter färg.
+Tio teströr med varierande längd och radie användes och kategoriserades efter färg.
 %
 \begin{figure}[ht]
     \centering
@@ -90,13 +90,12 @@ variabeln.
 %
 Mätningen påbörjades genom att placera bägaren under utloppet samtidigt som 
 tidtagningen startades. Samtliga mätvärden dokumenterades i ett Excel-ark för 
-senare analys. Experimentet undersökte fyra variabler:
+senare analys. Experimentet undersökte tre variabler:
 %
 \begin{itemize}
-    \item Rördiameter
+    \item Rörradie
     \item Rörlängd
     \item Vattentryck
-    \item Flödestid
 \end{itemize}
 %
 \begin{table}[ht]
@@ -107,7 +106,7 @@ senare analys. Experimentet undersökte fyra variabler:
         \hline
         Volymflöde & $Q$ & $L^3T^{-1}$ \\
         Rörlängd & $l$ & $L$ \\
-        Rördiameter & $d$ & $L$ \\
+        Rörradie & $r$ & $L$ \\
         Tid & $t$ & $T$ \\
         Volym & $V$ & $L^3$ \\
         Densitet* & $\rho$ & $ML^{-3}$ \\
@@ -138,7 +137,7 @@ att påverka vattenflödet. Mätprecisionen för vattenmängden var 1 mm.
     fungerade som fäste för teströren. På glasröret var en linjal monterad, en
     mätningsanordning som användes för att bestämma och kontrollera
     vattentrycket. Mest väsentligt var teströren, som var tio stycken. Rörens
-    längd och diameter varierade och delades upp med hjälp av färger. \\
+    längd och radie varierade och delades upp med hjälp av färger. \\
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.5\textwidth]{Labb-yta.jpg}
@@ -147,7 +146,7 @@ att påverka vattenflödet. Mätprecisionen för vattenmängden var 1 mm.
     \end{figure} \\
     Med denna anordning kunde vi mäta vattenflödet genom att låta vattnet flöda genom röret en bestämd tid och sedan samla upp vattnet i en bägare som vägdes.
     Experimentet genomfördes genom att ett specifikt rör monterades beroende på vilken variabel som skulle mätas. Därefter vägdes bägaren, och kranen öppnades tills ett konstant vattenflöde uppnåddes. Vid behov kontrollerades vattentrycket genom att kolla på glasröret (förutom då trycket var den undersökta variabeln).
-    När mätningen påbörjades placerades bägaren under utloppet, och tidtagningen startades samtidigt som vattenstrålen började rinna i bägaren. Alla mätvärden dokumenterades och samlades i ett Excel-ark för vidare analys. Totalt ändrades fyra variabler under mätningarna: rördiametern, rörlängden, vattentrycket och tiden då vattnet flödade.
+    När mätningen påbörjades placerades bägaren under utloppet, och tidtagningen startades samtidigt som vattenstrålen började rinna i bägaren. Alla mätvärden dokumenterades och samlades i ett Excel-ark för vidare analys. Totalt ändrades tre variabler under mätningarna: rörradie, rörlängden och vattentrycket.
 \begin{table}
     \centering
     \begin{tabular}{|c|c|c|}
@@ -155,7 +154,7 @@ att påverka vattenflödet. Mätprecisionen för vattenmängden var 1 mm.
             \textbf{Storhet} & \textbf{Betäckning} & \textbf{Dimension}\\ \hline
             Volymflöde & $Q$ & $L^3T^-1$\\ \hline
             Rörlängd & $l$ & $L$\\ \hline
-            Rördiameter & $d$ & $L$\\ \hline
+            Rörradie & $r$ & $L$\\ \hline
             Tid & $t$ & $T$\\ \hline
             Volym & $V$ & $L^3$\\ \hline
             Densitet* & $\rho$ & $ML^-3$\\ \hline
@@ -371,7 +370,7 @@ Från tidigare beräkningar har vi fått:
     \gamma &= -1 \label{eq:gamma}
 \end{align}
 %
-Det resulterande ekvationssystemet blir:
+Genom att jämföra exponenter får vi:
 \begin{align}
     \mathrm{L^3T^{-1}} &= \mathrm{L^{\alpha + \beta + \gamma}} \cdot 
     \mathrm{(ML^{-3})^\delta} \cdot \mathrm{(LT^{-2})^\epsilon} \cdot 
@@ -381,7 +380,7 @@ Det resulterande ekvationssystemet blir:
     \mathrm{T^{-2\epsilon - \varepsilon}}
 \end{align}
 %
-Genom att jämföra exponenter får vi:
+Det resulterande ekvationssystemet blir:
 \begin{align}
     \mathrm{M}&: \delta + \varepsilon = 0 \label{eq:M_balance} \\
     \mathrm{L}&: \alpha + \beta + \gamma - 3\delta + \epsilon - \varepsilon = 3 \label{eq:L_balance} \\
@@ -427,7 +426,7 @@ För att bestämma konstanten $C$ använder vi oss av tidigare mätningar. Vi ha
     \begin{tikzpicture}
         \begin{axis}[
             ylabel={Volymflöde Q $(m^3/s)$},
-            xlabel={$r^4 \cdot h \cdot l \cdot \rho^{-1} \cdot g \cdot \mu^{-1}$},
+            xlabel={$r^4 \cdot h \cdot l^{-1} \cdot \rho \cdot g \cdot \mu^{-1}$},
             xmin=0, xmax=1e-5,
             ymin=0, ymax=3e-6,
             width=0.75\textwidth,
@@ -478,7 +477,7 @@ För att bestämma konstanten $C$ använder vi oss av tidigare mätningar. Vi ha
     \end{tikzpicture}
     \label{fig:constant}
 \end{figure}
-funktionen ger oss konstanten, alltså är
+funktionen ger oss konstanten:
 \begin{align}
     C = 0.270986623660957 \approx 0.271
 \end{align}
